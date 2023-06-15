@@ -1,0 +1,93 @@
+<!--Прошу более подробные комментарии по ошибкам, особенно в медиа запросах(в них я сомневаюсь больше всего)-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Дмитрий">
+    <meta name="description" content="Проектная работа 4 спринта Дмитрия Лебедева на Яндекс Практикуме">
+    <link rel="stylesheet" type="text/css" href="./pages/index.css">
+    <title>Mesto</title>
+</head>
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/logo.svg" alt="Логотип Место">
+        <div class="header__line"></div>
+    </header>
+    <main class="content">
+        <section class="profile">
+                <img class="profile__avatar" src="./images/Avatar.png" alt="Аватар">
+           <div class="profile__info">
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button class="profile__button profile__button_edit" type="button" aria-label="Редактировать"></button>
+                <p class="profile__subtitle">Исследователь океана</p>
+           </div>
+           <button class="profile__button profile__button_add" type="button" aria-label="Добавить"></button>
+        </section>
+        <section class="elements">
+            <div class="element">
+                <img class="element__image" src="./images/Karachaevsk.png" alt="Карачаевск">
+                <div class="element__flex">
+                    <h2 class="element__title">Карачаевск</h2>
+                    <button class="element__like" type="button"></button> 
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__image" src="./images/Elbrus.png" alt="Гора Эльбрус">
+                <div class="element__flex">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like" type="button" ></button>
+                </div> 
+            </div>
+            <div class="element">
+                <img class="element__image" src="./images/Dombay.png" alt="Домбай">
+                <div class="element__flex">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like" type="button"></button>
+                </div> 
+            </div>
+            <div class="element">
+                <img class="element__image" src="./images/Elbrus.png" alt="Гора Эльбрус">
+                <div class="element__flex">
+                    <h2 class="element__title">Гора Эльбрус</h2>
+                    <button class="element__like" type="button"></button> 
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__image" src="./images/Dombay.png" alt="Домбай">
+                <div class="element__flex">
+                    <h2 class="element__title">Домбай</h2>
+                    <button class="element__like" type="button"></button> 
+                </div>
+            </div>
+            <div class="element">
+                <img class="element__image" src="./images/Karachaevsk.png" alt="Карачаевск">
+                <div class="element__flex">
+                    <h2 class="element__title">Карачаево-Черкессия</h2>
+                    <button class="element__like" type="button"></button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <aside class="popup">
+        <div class='popup__background'></div>
+        <div class="popup__container">
+            <button class="popup__button popup__button_close" type="button"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form-profile">
+                <input class="popup__field popup__user_name" type="text" name="name" id="name" value="Жак-Ив Кусто"/>
+                <div class="popup__line"></div>
+                <input class="popup__field popup__user_description" type="text" name="description" id="description" value="Исследователь океана"/>
+                <div class="popup__line"></div>
+
+                <button class="popup__button popup__button_submit" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </aside>
+    <footer class="footer">
+        <p class="footer__author">© 2023 Дмитрий Лебедев</p>
+    </footer>
+    <script src="./js/popup.js"></script>
+</body>
+</html>

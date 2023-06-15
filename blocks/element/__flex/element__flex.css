@@ -1,0 +1,9 @@
+.element__flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 246px;
+    max-height: 23px;
+    margin: 25px 15px 31px 21px;
+}

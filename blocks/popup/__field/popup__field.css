@@ -1,0 +1,17 @@
+.popup__field {
+    padding: 0;
+    border: 0;
+    width: 358px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.popup__field:last-of-type {
+    margin-top: 30px;
+}
+
+.popup__field:focus {
+    outline: 0;
+}
