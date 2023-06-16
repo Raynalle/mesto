@@ -4,11 +4,8 @@ function handleClick(e) {
 
     editButtonElement.blur();
 
-    if(e.target === e.currentTarget) {
-        popupElement.classList.toggle('popup_open');
-        nameInput.value = nameInputValue;
-        jobInput.value = jobInputValue;
-    }
+    popupElement.classList.toggle('popup_open');
+    
 }
 
 function handleFormSubmit(evt) {
@@ -17,26 +14,28 @@ function handleFormSubmit(evt) {
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
 
-    nameInputValue = nameInput.value;
-    jobInputValue = jobInput.value;
+    popupElement.classList.toggle('popup_open');
 }
 
-let nameInputValue = 'Жак-Ив Кусто';
-let jobInputValue = 'Исследователь океана';
-
-const editButtonElement = document.querySelector('.profile__button_edit');
-const closeButtonElement = document.querySelector('.popup__button_close');
+const editButtonElement = document.querySelector('.profile__button-edit');
+const closeButtonElement = document.querySelector('.popup__button-close');
 const popupElement = document.querySelector('.popup');
-const popupBackgroundElement = document.querySelector('.popup__background');
+
 
 editButtonElement.addEventListener('click', handleClick);
 closeButtonElement.addEventListener('click', handleClick);
-popupBackgroundElement.addEventListener('click', handleClick);
 
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#description');
 const nameProfile = document.querySelector('.profile__title');
 const jobProfile = document.querySelector('.profile__subtitle');
-const formElement = document.querySelector("form");
+const formElement = document.querySelector(".popup__form-profile");
+
+let likeElement = document.querySelector('.element__like');
+function likeActive() {
+    likeElement.classList.toggle('element__like_active');
+}
+
+likeElement.addEventListener('click', likeActive);
 
 formElement.addEventListener("submit", handleFormSubmit);

@@ -4,12 +4,9 @@
     height: 19px;
     border: none;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .element__like:hover {
     opacity: .6;
-}
-
-.element__like:focus {
-   background-image: url(../../../images/like_active.svg);
 }
