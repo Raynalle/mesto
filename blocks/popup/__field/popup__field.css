@@ -8,5 +8,6 @@
 	vertical-align: bottom;
 	font-size: 14px;
 	line-height: 17px;
-	margin-bottom: 31px;
+	margin-bottom: 40px; /*Постарался максимально подогнать к перфект пиксель оба инпута и кнопку, если выравнивать по первому инпуту,
+	 то встает только кнопка и верхний инпут https://skr.sh/sKOcVIClEV5?a*/
 }

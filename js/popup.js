@@ -13,11 +13,15 @@ function handleClick(e) {
 
     editButtonElement.blur();
     
-    nameProfile.value = nameInput.textContent;
-    jobProfile.value = jobInput.textContent;
+    nameProfile.textContent = nameInput.value;
+    jobProfile.textContent = jobInput.value;
 
-    popupElement.classList.toggle('popup_open');
     
+    
+}
+
+function togglePopup () {
+popupElement.classList.toggle('popup_open');
 }
 
 function handleFormSubmit(evt) {
@@ -26,13 +30,13 @@ function handleFormSubmit(evt) {
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
 
-    popupElement.classList.remove('popup_open');
+    togglePopup();
 }
 
 
 
 
-editButtonElement.addEventListener('click', handleClick);
-closeButtonElement.addEventListener('click', handleClick);
+editButtonElement.addEventListener('click', togglePopup);
+closeButtonElement.addEventListener('click', togglePopup);
 
-formElement.addEventListener("submit", handleFormSubmit);
+formElement.addEventListener("submit", handleFormSubmit, togglePopup);
