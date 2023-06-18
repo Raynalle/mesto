@@ -3,4 +3,7 @@
     max-height: 282px;
     object-fit: contain;
     object-position: center center;
+    overflow: hidden;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }

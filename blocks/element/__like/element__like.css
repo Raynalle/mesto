@@ -5,6 +5,7 @@
     border: none;
     cursor: pointer;
     flex-shrink: 0;
+    margin-right: 6px;
 }
 
 .element__like:hover {
