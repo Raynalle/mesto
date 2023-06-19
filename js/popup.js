@@ -13,30 +13,36 @@ function handleClick(e) {
 
     editButtonElement.blur();
     
-    nameProfile.textContent = nameInput.value;
-    jobProfile.textContent = jobInput.value;
+    togglePopup();
+  
+  nameInput.value = nameProfile.textContent;
+  jobInput.value = jobProfile.textContent;
 
-    
-    
+  if (e.target === closeButtonElement) {
+    nameInput.value = 'Жак-Ив Кусто';
+    jobInput.value = 'Исследователь океана';
+
+    return;
+  }
 }
 
 function togglePopup () {
-popupElement.classList.toggle('popup_open');
+  popupElement.classList.toggle('popup_open');
 }
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
 
-    nameProfile.textContent = nameInput.value;
-    jobProfile.textContent = jobInput.value;
-
     togglePopup();
+  
+  nameProfile.textContent = nameInput.value;
+  jobProfile.textContent = jobInput.value;
 }
 
 
 
 
-editButtonElement.addEventListener('click', togglePopup);
-closeButtonElement.addEventListener('click', togglePopup);
+editButtonElement.addEventListener('click', handleClick);
+closeButtonElement.addEventListener('click', handleClick);
 
-formElement.addEventListener("submit", handleFormSubmit, togglePopup);
+formElement.addEventListener("submit", handleFormSubmit);

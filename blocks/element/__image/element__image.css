@@ -1,7 +1,7 @@
 .element__image {
     width: 282px;
     height: 282px;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center center;
     overflow: hidden;
     border-top-right-radius: 10px;
