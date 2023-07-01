@@ -75,7 +75,7 @@ const initialCards = [
   }
 ];
 const addButtonElement = document.querySelector('.profile__button-add');
-const popupElementAdd = document.querySelector('.popup__type_add');
+const popupElementAdd = document.querySelector('.popup_add');
 const closePopupAdd = popupElementAdd.querySelector('.popup__button-close');
 const addForm = popupElementAdd.querySelector('.popup__form-profile');
 const addName = popupElementAdd.querySelector('#name-photo');
@@ -104,8 +104,8 @@ function togglePopupAdd() {
 
 
 const cardElements = document.querySelector('.elements');
-const tamplateElemenet = document.querySelector('.element__tamplate');
-const popupImage = document.querySelector('.popup__type_image');
+const tamplateElemenet = document.querySelector('.tamplate');
+const popupImage = document.querySelector('.popup_image');
 
 const createCard = ({name, link}) => {
   const clone = tamplateElemenet.content.cloneNode(true);
