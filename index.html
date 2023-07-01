@@ -23,65 +23,54 @@
                 </div>
                 <button class="profile__button-add" type="button" aria-label="Добавить"></button>
             </section>
-            <section class="elements">
-                <div class="element">
-                    <img class="element__image" src="./images/Karachaevsk.png" alt="Карачаевск" />
-                    <div class="element__flex">
-                        <h2 class="element__title">Карачаевск</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Elbrus.png" alt="Гора Эльбрус" />
-                    <div class="element__flex">
-                        <h2 class="element__title">Гора Эльбрус</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Dombay.png" alt="Домбай" />
-                    <div class="element__flex">
-                        <h2 class="element__title">Домбай</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Elbrus.png" alt="Гора Эльбрус" />
-                    <div class="element__flex">
-                        <h2 class="element__title">Гора Эльбрус</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Dombay.png" alt="Домбай" />
-                    <div class="element__flex">
-                        <h2 class="element__title">Домбай</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="./images/Karachaevsk.png" alt="Карачаевск" />
-                    <div class="element__flex">
-                        <h2 class="element__title">Карачаево-Черкессия</h2>
-                        <button class="element__like" type="button"></button>
-                    </div>
-                </div>
-            </section>
+            <section class="elements"></section>
         </main>
-        <div class="popup">
+        <div class="popup popup__type_profile">
             <div class="popup__container">
                 <button class="popup__button-close" type="button"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form-profile" name="profile">
+                <form class="popup__form-profile" name="edit-profile">
                     <input class="popup__field" type="text" name="name" id="name" value="Жак-Ив Кусто" placeholder="Ваше имя"/>
                     <input class="popup__field" type="text" name="description" id="description" value="Исследователь океана" placeholder="Описание"/>
                     <button class="popup__button-submit" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
+
+        <div class="popup popup__type_add">
+            <div class="popup__container">
+                <button class="popup__button-close" type="button"></button>
+                <h2 class="popup__title">Новое место</h2>
+                <form class="popup__form-profile" name="add-profile">
+                    <input class="popup__field" type="text" name="name" id="name-photo" placeholder="Название"/>
+                    <input class="popup__field" type="url" name="link" id="link-photo" placeholder="Ссылка на картинку"/>
+                    <button class="popup__button-submit" type="submit">Создать</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup__type_image">
+            <div class="popup__container popup__container_image">
+                <button class="popup__button-close" type="button"></button>
+                <img class="popup__image" src="" alt="#"/>
+                <h3 class="popup__subtitle"></h3>
+            </div>
+            </div>
+        </div>
         <footer class="footer">
             <p class="footer__author">© 2023 Дмитрий Лебедев</p>
         </footer>
-        <script src="./js/popup.js"></script>
+        <template class="element__tamplate">
+            <div class="element">
+                <button class="element__trash" type="button"></button>
+                <div class="element__body">
+                    <img class="element__image" src="" alt="#"/>
+                    <div class="element__flex">
+                       <h2 class="element__title"></h2>
+                       <button class="element__like" type="button"></button>
+                </div>
+                </div>
+            </div>
+        </template>
+        <script src="./js/index.js"></script>
     </body>
 </html>
