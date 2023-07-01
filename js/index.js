@@ -123,17 +123,16 @@ const createCard = ({name, link}) => {
   });
   
   //Попап картинка
-   const popuoImageElement = document.querySelector('.popup__type_img');
    cardElementImage.addEventListener('click', () => {
     popupImage.classList.add('popup_open');
-    popupImage.querySelector('.popup__image').src = link;//ругается.
+    popupImage.querySelector('.popup__image').src = link;
     popupImage.querySelector('.popup__subtitle').textContent = name;
    })
 
-   const closeButtonPopupImgElement = popupElement.querySelector('.popup__button-close');
+   const closeButtonPopupImgElement = popupImage.querySelector('.popup__button-close');
 
    closeButtonPopupImgElement.addEventListener('click', () => {
-    popuoImageElement.classList.remove('.popup_open');
+    popupImage.classList.remove('popup_open');
    })
    return cardElement;
 }
@@ -163,7 +162,3 @@ addButtonElement.addEventListener('click', openPopupAdd);
 closePopupAdd.addEventListener('click', openPopupAdd);
 
 addForm.addEventListener('submit', handleAddSubmit);
-
-
-
-
