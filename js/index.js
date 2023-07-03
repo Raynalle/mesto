@@ -24,7 +24,6 @@ buttonClosePopupElement.forEach(bttn => {
   bttn.addEventListener('click', () => closePopup(popup));
 });
 
-console.log(buttonClosePopupElement);
 
 
 function openPopupForm(e) {
@@ -124,7 +123,6 @@ const createCard = ({name, link}) => {
   const cardElementImage = cardElement.querySelector('.element__image');
   cardElementImage.src = link;
   cardElementImage.alt = name;
-  cardElement.querySelector('.element__flex');
   cardElement.querySelector('.element__title').textContent = name;
   cardElement.querySelector('.element__like').addEventListener('click', (evt) => {
     evt.target.classList.toggle('element__like_active');
@@ -162,7 +160,7 @@ function handleAddSubmit(evt) {
   const cardElement = createCard(item);
   cardElements.prepend(cardElement);
 
-  closePopup(popupImage);
+  closePopup(popupElementAdd);
 }
 
 buttonOpenPopupAdd.addEventListener('click', openPopupAdd);
