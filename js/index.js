@@ -101,12 +101,12 @@ const createCard = ({name, link}) => {
   });
   
   //Попап картинка
-    popupElementURL.src = link;
-    popupElementDescription.alt = name;
-    popupElementName.textContent = name;
-   
     cardElementImage.addEventListener('click', () => {
-    openPopup(popupImage);
+      popupElementURL.src = link;
+      popupElementDescription.alt = name;
+      popupElementName.textContent = name;
+      
+      openPopup(popupImage);
    })
    return cardElement;
 }
