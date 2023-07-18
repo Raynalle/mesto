@@ -5,7 +5,6 @@ const classValidation = {
     inactiveButtonClass: 'popup__button-submit_noactive',
     errorClass: 'popup__input-error_visible',
     inputInvalidClass: 'invalid',
-    buttonAdd: 'profile__button-add',
 };
 
 /**
@@ -14,12 +13,12 @@ const classValidation = {
  * @param popupElement Модальное окно
  * @param field Поле
  */
-const showError = (popupElement, field) => {
+const showError = (popupElement, field, validationParams) => {
     const errorElement = popupElement.querySelector((`.${field.id}-error`));
 
-    field.classList.add(classValidation.inputInvalidClass);
+    field.classList.add(validationParams.inputInvalidClass);
     errorElement.textContent = field.validationMessage;
-    errorElement.classList.add(classValidation.errorClass);
+    errorElement.classList.add(validationParams.errorClass);
 };
 
 /**
@@ -28,12 +27,12 @@ const showError = (popupElement, field) => {
  * @param popupElement Модальное окно
  * @param field Поле
  */
-const hideError = (popupElement, field) => {
+const hideError = (popupElement, field, validationParams) => {
     const errorElement = popupElement.querySelector((`.${field.id}-error`));
 
-    field.classList.remove(classValidation.inputInvalidClass);
+    field.classList.remove(validationParams.inputInvalidClass);
     errorElement.textContent = '';
-    errorElement.classList.remove(classValidation.errorClass);
+    errorElement.classList.remove(validationParams.errorClass);
 };
 
 /**
@@ -41,14 +40,15 @@ const hideError = (popupElement, field) => {
  *
  * @param popupElement Модальное окно
  * @param field Поле
+ * @param validationParams Конфигурация валидации
  */
-const validate = (popupElement, field) => {
-    if (event.target.className.includes(classValidation.buttonAdd) || field.validity.valid) {
-        hideError(popupElement, field);
+const validate = (popupElement, field, validationParams) => {
+    if (field.validity.valid) {
+        hideError(popupElement, field, validationParams);
         return true;
     }
 
-    showError(popupElement, field);
+    showError(popupElement, field, validationParams);
 }
 
 /**
@@ -56,18 +56,19 @@ const validate = (popupElement, field) => {
  *
  * @param popupElement Модальное окно
  * @param popupFields Поля модального окна
+ * @param validationParams Конфигурация валидации
  */
-const toggleButton = (popupElement, popupFields) => {
-    const popupSubmitButton = popupElement.querySelector(classValidation.submitButtonSelector);
+const toggleButton = (popupElement, popupFields, validationParams) => {
+    const popupSubmitButton = popupElement.querySelector(validationParams.submitButtonSelector);
     const hasInvalidInput = popupFields.some(field => {
         return !field.validity.valid;
     });
 
     if (hasInvalidInput) {
-        popupSubmitButton.classList.add(classValidation.inactiveButtonClass);
+        popupSubmitButton.classList.add(validationParams.inactiveButtonClass);
         popupSubmitButton.setAttribute("disabled", true);
     } else {
-        popupSubmitButton.classList.remove(classValidation.inactiveButtonClass);
+        popupSubmitButton.classList.remove(validationParams.inactiveButtonClass);
         popupSubmitButton.removeAttribute("disabled", true);
     }
 }
@@ -76,35 +77,30 @@ const toggleButton = (popupElement, popupFields) => {
  * Добавление слушателей
  *
  * @param popupElement Модальное окно
- * @param needInitListeners Параметр необходимости добавления слушателей
+ * @param validationParams Конфигурация валидации
  */
-const setEventListeners = (popupElement, needInitListeners) => {
-    const popupFields = Array.from(popupElement.querySelectorAll(classValidation.inputSelector));
+const setEventListeners = (popupElement, validationParams) => {
+    const popupFields = Array.from(popupElement.querySelectorAll(validationParams.inputSelector));
 
     popupFields.forEach(field => {
-        if (needInitListeners) {
-            field.addEventListener('input', function () {
-                validate(popupElement, field);
-                toggleButton(popupElement, popupFields);
-            });
-        } else {
-            validate(popupElement, field);
-            toggleButton(popupElement, popupFields);
-        }
+        field.addEventListener('input', function () {
+            validate(popupElement, field, validationParams);
+            toggleButton(popupElement, popupFields, validationParams);
+        });
     });
 };
 
 /**
  * Включает валидацию
  *
- * @param needInitListeners Параметр необходимости добавления слушателей
+ * @param validationParams Конфигурация валидации
  */
-const enableValidation = (needInitListeners = true) => {
-    const formList = Array.from(document.querySelectorAll(classValidation.formSelector));
+const enableValidation = (validationParams) => {
+    const formList = Array.from(document.querySelectorAll(validationParams.formSelector));
 
     formList.forEach(popupFormElement => {
-        setEventListeners(popupFormElement, needInitListeners);
+        setEventListeners(popupFormElement, validationParams);
     });
 };
 
-enableValidation();
+enableValidation(classValidation);

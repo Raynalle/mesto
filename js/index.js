@@ -29,8 +29,6 @@ const popupElementName = popupImage.querySelector('.popup__subtitle');
 function openPopup(popup) {
     popup.classList.add('popup_open');
 
-    enableValidation(false);
-
     document.addEventListener('keydown', closePopupByEsc);
 }
 
@@ -60,11 +58,6 @@ function openPopupFormProfile(e) {
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
 
-    if (e.target === buttonClosePopupElement) {
-        nameInput.value = 'Жак-Ив Кусто';
-        jobInput.value = 'Исследователь океана';
-    }
-
     openPopup(popupElementProfile);
 }
 
@@ -88,6 +81,13 @@ function openPopupAdd(e) {
     addName.value = '';
     addURL.value = '';
 
+    const popupElementAddFields = [addName, addURL];
+
+    for (field of popupElementAddFields) {
+        hideError(popupElementAdd, field, classValidation);
+    }
+
+    toggleButton(popupElementAdd, popupElementAddFields, classValidation);
     openPopup(popupElementAdd);
 }
 
@@ -148,20 +148,17 @@ function closeOverlay(evt) {
     if (evt.currentTarget === evt.target) {
         closePopup(evt.target);
     }
-    ;
 };
 
 //Закрытие попапов по эскэйпу
 function closePopupByEsc(evt) {
-    const activePopup = document.querySelector('.popup_open');
     if (evt.key === "Escape") {
+        const activePopup = document.querySelector('.popup_open');
         closePopup(activePopup);
-    }
-    ;
+    };
 };
 
 popupElement.forEach(popup => popup.addEventListener('click', closeOverlay));
-document.addEventListener('keydown', closePopupByEsc);
 
 //Слушатель клика
 buttonOpenPopupProfile.addEventListener('click', openPopupFormProfile);
