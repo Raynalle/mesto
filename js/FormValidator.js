@@ -2,6 +2,7 @@ export default class FormValidator {
     constructor(settings, formElement) {
         this._settings = settings;
         this._formElement = formElement;
+        this._formFields = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
     }
 
     enableValidation() {
@@ -9,7 +10,7 @@ export default class FormValidator {
     }
 
     _setEventListeners() {
-        const formFields = this._getFormFields();
+        const formFields = this._formFields;
 
         formFields.forEach(field => {
             field.addEventListener('input', () => {
@@ -60,7 +61,7 @@ export default class FormValidator {
     }
 
     clearFormErrors() {
-        const formFields = this._getFormFields();
+        const formFields = this._formFields;
 
         formFields.forEach(field => {
             this._hideError(field);
@@ -70,10 +71,6 @@ export default class FormValidator {
     resetForm() {
         this.clearFormErrors();
         this._formElement.reset();
-        this._toggleButton(this._getFormFields());
-    }
-
-    _getFormFields() {
-        return Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
+        this._toggleButton(this._formFields);
     }
 }

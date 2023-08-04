@@ -105,6 +105,16 @@ function openPopupAdd(e) {
     openPopup(popupElementAdd);
 }
 
+const openPopupImage = (name, link) => {
+    popupElementURL.src = link;
+    popupElementDescription.alt = name;
+    popupElementName.textContent = name;
+
+    popupImage.classList.add('popup_open');
+
+    document.addEventListener('keydown', closePopupByEsc);
+}
+
 initialCards.forEach((item) => {
     const cardData = {
         ...item,
@@ -112,7 +122,7 @@ initialCards.forEach((item) => {
         popupElementDescription,
         popupElementName
     };
-    const cardElement = new Card(cardData, tamplateElemenet, () => openPopup(popupImage));
+    const cardElement = new Card(cardData, tamplateElemenet, openPopupImage);
     cardElements.prepend(cardElement.createCard());
 
 })
@@ -122,13 +132,16 @@ function handleAddSubmit(evt) {
     evt.preventDefault();
     const name = addName.value;
     const link = addURL.value;
-    const item = {
+    const cardData = {
         name,
-        link
+        link,
+        popupElementURL,
+        popupElementDescription,
+        popupElementName
     }
 
-    const cardElement = createCard(item);
-    cardElements.prepend(cardElement);
+    const cardElement = new Card(cardData, tamplateElemenet, openPopupImage);
+    cardElements.prepend(cardElement.createCard());
 
     closePopup(popupElementAdd);
 }

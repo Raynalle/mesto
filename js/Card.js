@@ -1,12 +1,9 @@
 export default class Card {
-    constructor(object, templateElement, handleOpenPopup) {
+    constructor(object, templateElement, handleImageClick) {
         this._name = object.name;
         this._link = object.link;
         this._template = templateElement;
-        this._popupElementURL = object.popupElementURL;
-        this._popupElementDescription = object.popupElementDescription;
-        this._popupElementName = object.popupElementName;
-        this._handleOpenPopup = handleOpenPopup;
+        this._handleImageClick = handleImageClick;
     }
 
     createCard() {
@@ -37,12 +34,6 @@ export default class Card {
     }
 
     _onImgClick(cardElementImage) {
-        cardElementImage.addEventListener('click', () => {
-            this._popupElementURL.src = this._link;
-            this._popupElementDescription.alt = this._name;
-            this._popupElementName.textContent = this._name;
-    
-            this._handleOpenPopup();
-        })
+        cardElementImage.addEventListener('click', () => this._handleImageClick(this._name, this._link));
     }
 }
