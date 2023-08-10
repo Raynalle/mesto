@@ -3,6 +3,7 @@ export default class FormValidator {
         this._settings = settings;
         this._formElement = formElement;
         this._formFields = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
+		this._popupSubmitButton = this._formElement.querySelector(this._settings.submitButtonSelector);
     }
 
     enableValidation() {
@@ -10,12 +11,10 @@ export default class FormValidator {
     }
 
     _setEventListeners() {
-        const formFields = this._formFields;
-
-        formFields.forEach(field => {
+        this._formFields.forEach(field => {
             field.addEventListener('input', () => {
                 this._validate(field);
-                this._toggleButton(formFields);
+                this._toggleButton(this._formFields);
             });
         });
     }
@@ -29,18 +28,17 @@ export default class FormValidator {
     }
 
     
-    _toggleButton(popupFields) {
-        const popupSubmitButton = this._formElement.querySelector(this._settings.submitButtonSelector);
-        const hasInvalidInput = popupFields.some(field => {
+    _toggleButton() {
+        const hasInvalidInput = this._formFields.some(field => {
             return !field.validity.valid;
         });
 
         if (hasInvalidInput) {
-            popupSubmitButton.classList.add(this._settings.inactiveButtonClass);
-            popupSubmitButton.setAttribute("disabled", true);
+            this._popupSubmitButton.classList.add(this._settings.inactiveButtonClass);
+            this._popupSubmitButton.setAttribute("disabled", true);
         } else {
-            popupSubmitButton.classList.remove(this._settings.inactiveButtonClass);
-            popupSubmitButton.removeAttribute("disabled", true);
+            this._popupSubmitButton.classList.remove(this._settings.inactiveButtonClass);
+            this._popupSubmitButton.removeAttribute("disabled", true);
         }
     }
 
@@ -61,9 +59,7 @@ export default class FormValidator {
     }
 
     clearFormErrors() {
-        const formFields = this._formFields;
-
-        formFields.forEach(field => {
+        this._formFields.forEach(field => {
             this._hideError(field);
         });
     }
