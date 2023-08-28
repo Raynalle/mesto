@@ -3,7 +3,8 @@ export default class FormValidator {
         this._settings = settings;
         this._formElement = formElement;
         this._formFields = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
-		this._popupSubmitButton = this._formElement.querySelector(this._settings.submitButtonSelector);
+		this._popupSubmitButton = this._formElement.querySelector(this._settings.submitButtonSelector); /*https://skrinshoter.ru/sLSdkB9t4JS?a c иерархией все в порядке, 
+        так же было проверено форматирование с помощью Prettier - изменений нет, коммент будет удален после итерации*/
     }
 
     enableValidation() {
@@ -14,7 +15,7 @@ export default class FormValidator {
         this._formFields.forEach(field => {
             field.addEventListener('input', () => {
                 this._validate(field);
-                this._toggleButton(this._formFields);
+                this._toggleButton();
             });
         });
     }
@@ -27,13 +28,15 @@ export default class FormValidator {
         }
     }
 
-    
-    _toggleButton() {
-        const hasInvalidInput = this._formFields.some(field => {
+    _hasInvalidInput() {
+        return this._formFields.some(field => {
             return !field.validity.valid;
         });
-
-        if (hasInvalidInput) {
+    }
+    
+    _toggleButton() {
+        
+        if (this._hasInvalidInput()) {
             this._popupSubmitButton.classList.add(this._settings.inactiveButtonClass);
             this._popupSubmitButton.setAttribute("disabled", true);
         } else {
@@ -64,9 +67,8 @@ export default class FormValidator {
         });
     }
 
-    resetForm() {
+    resetValidation() {
         this.clearFormErrors();
-        this._formElement.reset();
-        this._toggleButton(this._formFields);
+        this._toggleButton();
     }
 }
