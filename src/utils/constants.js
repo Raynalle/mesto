@@ -18,6 +18,11 @@ const popupElementURL = popupImage.querySelector('.popup__image');
 const popupElementDescription = popupImage.querySelector('.popup__image');
 const popupElementName = popupImage.querySelector('.popup__subtitle');
 
+const buttonOpenPopupAvatar = document.querySelector('.profile__avatar-container');
+const profileAvatarImg = document.querySelector('.profile__avatar');
+const popupAvatar = document.querySelector('.popup_editAvatar');
+const avatarFormElement = popupAvatar.querySelector('.popup__form-profile');
+
 const validationSettings = {
     inputSelector: '.popup__field',
     submitButtonSelector: '.popup__button-submit',
@@ -27,4 +32,4 @@ const validationSettings = {
 };
 
 export {buttonOpenPopupProfile, nameInput, jobInput, formProfilePopupElement, buttonOpenPopupAdd, addForm, addName, addURL,
-    templateElement, popupElementURL, popupElementDescription, popupElementName, validationSettings}
+    templateElement, popupElementURL, popupElementDescription, popupElementName, validationSettings, buttonOpenPopupAvatar, avatarFormElement, profileAvatarImg}

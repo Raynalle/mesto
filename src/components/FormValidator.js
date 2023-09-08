@@ -3,8 +3,7 @@ export default class FormValidator {
         this._settings = settings;
         this._formElement = formElement;
         this._formFields = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
-		this._popupSubmitButton = this._formElement.querySelector(this._settings.submitButtonSelector); /*https://skrinshoter.ru/sLSdkB9t4JS?a c иерархией все в порядке, 
-        так же было проверено форматирование с помощью Prettier - изменений нет, коммент будет удален после итерации*/
+		this._popupSubmitButton = this._formElement.querySelector(this._settings.submitButtonSelector);
     }
 
     enableValidation() {
