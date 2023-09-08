@@ -25,7 +25,7 @@
 /*!*************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/__avatar/profile__avatar.css ***!
   \*************************************************************************************************************************************************************************/
-.profile__avatar{border-radius:50%;height:120px;-o-object-fit:cover;object-fit:cover;width:120px}
+.profile__avatar{border-radius:50%;height:120px;-o-object-fit:cover;object-fit:cover;opacity:1;transition:opacity .3s ease;width:120px}.profile__avatar-container{height:120px;position:relative;width:120px}.profile__avatar-change{background-image:url(f0dd9c51cf799b8b82d2.svg);background-repeat:no-repeat;background-size:contain;display:none;height:26px;left:47px;position:absolute;top:47px;transition:display .3s ease;width:26px}.profile__avatar-container:hover>.profile__avatar{cursor:pointer;opacity:.2;transition:opacity .3s ease}.profile__avatar-container:hover>.profile__avatar-change{display:block;transition:display .3s ease}
 /*!*********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/__info/profile__info.css ***!
   \*********************************************************************************************************************************************************************/
@@ -82,6 +82,14 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__body/element__body.css ***!
   \*********************************************************************************************************************************************************************/
 .element__body{display:flex;flex-direction:column;justify-content:space-between}
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__like-counter/element__like-counter.css ***!
+  \*************************************************************************************************************************************************************************************/
+.element__like-counter{color:#000;font-size:13px;font-style:normal;font-weight:400;line-height:normal;margin:7px 0 0 5px;text-align:center;width:10px}
+/*!***********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/element/__shell/element__shell.css ***!
+  \***********************************************************************************************************************************************************************/
+.element__shell{display:flex;flex-direction:column}
 /*!******************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/footer/footer.css ***!
   \******************************************************************************************************************************************************/
@@ -162,6 +170,14 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/popup/_image/popup_image.css ***!
   \*****************************************************************************************************************************************************************/
 .popup_image{background:rgba(0,0,0,.8)}
+/*!*********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/popup/_confirm/popup_confirm.css ***!
+  \*********************************************************************************************************************************************************************/
+.popup_confirm{background:rgba(0,0,0,.8)}
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/popup/__button-submit/_margin/popup__button-submit_margin.css ***!
+  \**************************************************************************************************************************************************************************************************/
+.popup__button-submit_margin{margin-top:48px}
 /*!*****************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/pages/index.css?ver=124 ***!
   \*****************************************************************************************************************************************************/

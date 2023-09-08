@@ -14,11 +14,14 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img class="profile__avatar" src="727b5baa123f981bf5e0.png" alt="Аватар" />
+                <div class="profile__avatar-container">
+                    <div class="profile__avatar-change"></div>
+                    <img class="profile__avatar" src="#" alt="Аватар" />
+                </div>
                 <div class="profile__info">
-                    <h1 class="profile__title">Жак-Ив Кусто</h1>
+                    <h1 class="profile__title"></h1>
                     <button class="profile__button-edit" type="button" aria-label="Редактировать"></button>
-                    <p class="profile__subtitle">Исследователь океана</p>
+                    <p class="profile__subtitle"></p>
                 </div>
                 <button class="profile__button-add" type="button" aria-label="Добавить"></button>
             </section>
@@ -69,12 +72,29 @@
                 <h3 class="popup__subtitle"></h3>
             </div>
         </div>
-        <div class="popup popup_approval popup_open">
-            <div class="popup__container popup__container_approval">
-                <button class="popup__button-close" type="button"></button>
+        <div class="popup popup_confirm">
+            <div class="popup__container">
+                <form class="popup__form" name="form-profile">
+                    <button class="popup__button-close" type="button"></button>
+                    <h2 class="popup__title">Вы уверены?</h2>
+                    <button class="popup__button-submit" type="submit">Да</button>
+                </form>
             </div>
-            <button class="popup__button-submit" type="submit">Да</button>
         </div>
+        <div class="popup popup_editAvatar">
+            <div class="popup__container">
+              <button class="popup__button-close" type="button"></button>
+              <h2 class="popup__title">Обновить аватар</h2>
+              <form class="popup__form-profile" name="form-profile">
+                <label class="popup__label-field" for="avatar">
+                  <input class="popup__field" type="url" name="avatar" id="avatar" placeholder="Ссылка на новый аватар" required>
+                    <span class="popup__input-error avatar-error"></span>
+                </label>
+                <button class="popup__button-submit popup__button-submit_margin" type="submit" id="button-save-avatar" disabled>Сохранить</button>
+              </form>
+            </div>
+          </div>
+    
         <footer class="footer">
             <p class="footer__author">© 2023 Дмитрий Лебедев</p>
         </footer>
@@ -85,7 +105,10 @@
                     <img class="element__image" src="#" alt="#"/>
                     <div class="element__flex">
                        <h2 class="element__title"></h2>
-                       <button class="element__like" type="button"></button>
+                       <div class="element__shell">
+                         <button class="element__like" type="button"></button>
+                             <span class="element__like-counter"></span>
+                       </div>
                 </div>
                 </div>
             </div>
