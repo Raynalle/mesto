@@ -31,11 +31,11 @@ const userInfo = new UserInfo({
 
 api.getUserInfo().then((result) => userInfo.setUserInfo(result)).catch(errorHandler);
 
-const PopupConfirm = new PopupWithConfirm('.popup_confirm', (card) => {
+const popupConfirm = new PopupWithConfirm('.popup_confirm', (card) => {
     api.removeCard(card.id)
         .then(() => {
             card.removeCard();
-            PopupConfirm.close();
+            popupConfirm.close();
         }).catch(errorHandler);
 })
 
@@ -153,5 +153,12 @@ function handleUpdateAvatar ({avatar}) {
         }).catch(errorHandler);
 }
 // КОНЕЦ: редактирование профиля
+
+Promise.all([api.getInitialCards(), api.getUserInfo])
+.then(([cards, userInfo]) => { 
+    userId = userInfo._id;
+    userProfile.setUserInfo(userInfo);
+    sectionCard.renderItems(cards);
+}).catch(errorHandler)
 
 PopupConfirm.setEventListeners();
