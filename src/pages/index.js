@@ -29,8 +29,6 @@ const userInfo = new UserInfo({
     avatar: '.profile__avatar',
 });
 
-api.getUserInfo().then((result) => userInfo.setUserInfo(result)).catch(errorHandler);
-
 const popupConfirm = new PopupWithConfirm('.popup_confirm', (card) => {
     api.removeCard(card.id)
         .then(() => {
@@ -60,10 +58,6 @@ const handleOpenPopupImage = (name, link) => {
 
 const section = new Section('.elements', (data) => addCard(data));
 
-api.getCards().then((result) => {
-    section.renderItems(result);
-}).catch(errorHandler);
-
 // КОНЕЦ: инициализация секции карточек
 
 // СТАРТ: добавление карточки
@@ -85,7 +79,7 @@ function addCard(cardItem) {
         userInfo.getUserInfo().id,
         templateElement,
         handleOpenPopupImage,
-        () => PopupConfirm.open(card),
+        () => popupConfirm.open(card),
         () => {
             if (card.isLiked()) {
                 api.removeLike(card.id)
@@ -154,11 +148,10 @@ function handleUpdateAvatar ({avatar}) {
 }
 // КОНЕЦ: редактирование профиля
 
-Promise.all([api.getInitialCards(), api.getUserInfo])
-.then(([cards, userInfo]) => { 
-    userId = userInfo._id;
-    userProfile.setUserInfo(userInfo);
-    sectionCard.renderItems(cards);
+Promise.all([api.getCards(), api.getUserInfo()])
+.then(([cards, userInfoResult]) => {
+    userInfo.setUserInfo(userInfoResult);
+    section.renderItems(cards);
 }).catch(errorHandler)
 
-PopupConfirm.setEventListeners();
+popupConfirm.setEventListeners();
